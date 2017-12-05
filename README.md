@@ -1,8 +1,6 @@
 # Payture::Cheques
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/payture/cheques`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Обертка к API отправки чеков, предоставляемому компанией Payture.
 
 ## Installation
 
@@ -22,7 +20,51 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Создание клиента:
+```ruby
+    client = Payture::Cheques.client(
+      host: 'sandbox3.payture.com',
+      merchant_id: 'MyMerchantId',
+      password: 'MyPassword',
+    )
+```
+
+отправка чека:
+```ruby
+
+    cheque = JSON.parse('{
+             "Message":"test",
+             "Type":1,
+             "Positions":[
+                {
+                   "Quantity":1.000,
+                   "Price":111.45,
+                   "Tax":1,
+                   "Text":"Булка"
+                }
+             ],
+             "CheckClose":{
+                "Payments":[
+                   {
+                      "Type":1,
+                      "Amount":123.45
+                   }
+                ],
+                "TaxationSystem":1
+             },
+             "CustomerContact":"nikita.popovsky@payture.com"
+          }
+       ')
+
+        response = client.create(
+          cheque_id: 'chequeid-1234',
+          inn: 7710140679,
+          content: cheque
+        )
+
+        response.success
+```
+
 
 ## Development
 
@@ -38,4 +80,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-

@@ -1,0 +1,38 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox3.payture.com/apicheque/Create
+    body:
+      encoding: UTF-8
+      string: '{"Key":"MerchantId","Password":"1234","Message":"test","Cheque":{"Id":"busfor-123","INN":7710140679,"Content":{"Type":1,"Positions":[{"Quantity":1.0,"Price":111.45,"Tax":1,"Text":"Булка"}],"CheckClose":{"Payments":[{"Type":1,"Amount":123.45}],"TaxationSystem":1},"CustomerContact":"nikita.popovsky@payture.com"}}}'
+    headers:
+      User-Agent:
+      - Faraday v0.13.1
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 05 Dec 2017 13:21:22 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '78'
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: '{"Success":true,"ErrCode":null,"ErrMessages":null,"Status":"Conflict"}'
+    http_version: 
+  recorded_at: Tue, 05 Dec 2017 13:21:22 GMT
+recorded_with: VCR 2.9.3

@@ -9,7 +9,7 @@ module Payture::Cheques
       }.freeze
 
       def success?
-        body['Success'] == 'True' && body['Status'] == 'Accepted'
+        body['Success'] == true && body['Status'] == 'Accepted'
       end
 
       def error_code

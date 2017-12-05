@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox3.payture.com/apicheque/Status
+    body:
+      encoding: UTF-8
+      string: '{"Key":"MerchantId","Password":"1234","Id":"busfor-123"}'
+    headers:
+      User-Agent:
+      - Faraday v0.13.1
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 05 Dec 2017 13:30:08 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '550'
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJTdWNjZXNzIjp0cnVlLCJFcnJDb2RlIjpudWxsLCJDaGVxdWVzIjpbeyJT
+        ZW5kZWQiOnRydWUsIkNoZXF1ZSI6eyJJZCI6ImJ1c2Zvci0xMjMiLCJEZXZp
+        Y2VTTiI6IjA1NzgwNTAwMDUwMDE1NDIiLCJEZXZpY2VSTiI6IjAwMDAwMDA0
+        MDAwNTQ5NTIiLCJGU051bWJlciI6Ijk5OTkwNzg5MDAwMDEzNDEiLCJPRkRO
+        YW1lIjoi0J7QntCeIFwi0K/RgNGD0YFcIiAoXCLQntCk0JQt0K9cIikiLCJP
+        RkRXZWJzaXRlIjoid3d3Lm9mZC15YS5ydSIsIk9GRElOTiI6Ijc3Mjg2OTk1
+        MTciLCJGTlNXZWJzaXRlIjoid3d3Lm5hbG9nLnJ1IiwiQ29tcGFueUlOTiI6
+        Ijc3MTAxNDA2NzkiLCJDb21wYW55TmFtZSI6ItCQ0J4gwqvQotC40L3RjNC6
+        0L7RhNGEINCR0LDQvdC6wrsiLCJEb2N1bWVudE51bWJlciI6NDMwOSwiU2hp
+        ZnROdW1iZXIiOjgwMDEsIkRvY3VtZW50SW5kZXgiOjc3MjMsIlByb2Nlc3Nl
+        ZEF0IjoiMjAxNy0xMi0wNVQxNjowNDo1NS43MTg2MjMiLCJDb250ZW50Ijp7
+        IlR5cGUiOjEsIlBvc2l0aW9ucyI6W3siQWRkaXRpb25hbFBhcmFtcyI6bnVs
+        bCwiUXVhbnRpdHkiOjEuMCwiUHJpY2UiOjExMS40NSwiVGF4IjoxLCJUZXh0
+        Ijoi0JHRg9C70LrQsCJ9XSwiQ2hlY2tDbG9zZSI6eyJQYXltZW50cyI6W3si
+        VHlwZSI6MSwiQW1vdW50IjoxMjMuNDV9XSwiVGF4YXRpb25TeXN0ZW0iOjF9
+        LCJDdXN0b21lckNvbnRhY3QiOiJuaWtpdGEucG9wb3Zza3lAcGF5dHVyZS5j
+        b20ifSwiQ2hhbmdlIjoxMi4wLCJGUCI6Ijg5MTQ4OTk4MiJ9LCJFcnJDb2Rl
+        IjpudWxsLCJTdGF0dXMiOiJDcmVhdGVkIn1dfQ==
+    http_version: 
+  recorded_at: Tue, 05 Dec 2017 13:30:08 GMT
+recorded_with: VCR 2.9.3

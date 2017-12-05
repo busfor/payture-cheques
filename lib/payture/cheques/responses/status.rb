@@ -15,7 +15,7 @@ module Payture::Cheques
       end
 
       def success?
-        body['Success'] == 'True' && body['Status'] == 'Created'
+        body['Success'] == true
       end
 
       def error_code
