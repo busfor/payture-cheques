@@ -12,6 +12,7 @@ require 'payture/cheques/methods/status'
 require 'payture/cheques/responses/base'
 require 'payture/cheques/responses/create'
 require 'payture/cheques/responses/status'
+require 'payture/cheques/responses/cheque_status'
 
 module Payture::Cheques
   class Error < StandardError

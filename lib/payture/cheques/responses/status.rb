@@ -4,11 +4,15 @@ module Payture::Cheques
   module Responses
     class Status < Base
       ERROR_STATES = {
-        'Unauthorized': 'Cannot authorize with terminal',
-        'NotFound': 'Cheque not found',
-        'Timeout': 'timeout while connected to terminal',
-        'Unknown': 'Unknown, cheque not created',
+        'Unauthorized' => 'CANNOT_AUTHORIZE_TERMINAL',
+        'NotFound' => 'NOT_FOUND',
+        'Timeout' => 'TIMEOUT',
+        'Unknown' => 'UNKNOWN',
       }.freeze
+
+      def cheques
+        @cheques ||= body['Cheques'].map { |c| ChequeStatus.new(c) }
+      end
 
       def success?
         body['Success'] == 'True' && body['Status'] == 'Created'

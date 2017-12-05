@@ -54,7 +54,6 @@ module Payture::Cheques
           begin
             JSON.parse(http_response.body)
           rescue JSON::ParserError => e
-            puts http_response.body
             raise Error, "#{e.class}: #{e.message}"
           end
 

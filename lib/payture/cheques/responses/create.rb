@@ -4,8 +4,8 @@ module Payture::Cheques
   module Responses
     class Create < Base
       ERROR_STATES = {
-        'Conflict': 'Id already used',
-        'BadRequest': 'Bad data format',
+        'Conflict' => 'DUPLICATE_ID',
+        'BadRequest' => 'BAD_REQUEST_FORMAT',
       }.freeze
 
       def success?
