@@ -35,7 +35,6 @@ module Payture::Cheques
           builder.response(:logger, config.logger) if config.logger
         end
         conn.post(url) do |req|
-          pp compact_hash(params)
           req.headers['Content-Type'] = 'application/json'
           req.body = compact_hash(params).to_json
           req.options.timeout = config.timeout if config.timeout
