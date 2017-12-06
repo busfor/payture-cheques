@@ -37,6 +37,7 @@ module Payture::Cheques
         conn.post(url) do |req|
           req.headers['Content-Type'] = 'application/json'
           req.body = compact_hash(params).to_json
+          config.logger.debug(req.body) if config.logger
           req.options.timeout = config.timeout if config.timeout
           req.options.open_timeout = config.open_timeout if config.open_timeout
         end
@@ -56,6 +57,7 @@ module Payture::Cheques
             raise Error, "#{e.class}: #{e.message}"
           end
 
+        config.logger.debug(pp(body)) if config.logger
         response_class.new(body)
       end
 
