@@ -57,7 +57,7 @@ module Payture::Cheques
             raise Error, "#{e.class}: #{e.message}"
           end
 
-        config.logger.debug(pp(body)) if config.logger
+        config.logger.debug(body) if config.logger
         response_class.new(body)
       end
 
