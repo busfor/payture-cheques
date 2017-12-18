@@ -19,12 +19,26 @@ describe Payture::Cheques::Methods::Status do
 
     assert response.success?
     assert response.processed?
-    refute response.error_code
+
+    refute response.processing_error?
+    assert_nil response.error_code
+  end
+
+  it 'returns success cheques' do
+    response =
+      VCR.use_cassette('status_success') do
+        @client.status(cheque_id: 'busfor-123')
+      end
+
     assert_equal 1, response.cheques.size
 
-    cheque_status = response.cheques.first
-    assert cheque_status.processed?
-    assert cheque_status.sent
-    assert_equal 'Created', cheque_status.status
+    cheque = response.cheques.first
+
+    assert cheque.sent
+    assert cheque.processed?
+    assert_equal 'Created', cheque.status
+
+    refute response.processing_error?
+    assert_nil cheque.error_code
   end
 end

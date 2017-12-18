@@ -19,7 +19,11 @@ module Payture::Cheques
       end
 
       def processed?
-        cheques.all?(&:processed?)
+        error_code.nil? && cheques.all?(&:processed?)
+      end
+
+      def processing_error?
+        !error_code.nil? || cheques.any?(&:processing_error?)
       end
 
       def error_code
