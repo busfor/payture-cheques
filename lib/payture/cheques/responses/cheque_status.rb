@@ -3,15 +3,19 @@ module Payture::Cheques
     class ChequeStatus
       attr_reader :sent, :cheque, :error_code, :status
 
-      def initialize(args)
-        @sent = args["Sended"]
-        @cheque = args["Cheque"]
-        @status = args["Status"]
-        @error_code = args["ErrCode"] || Status::ERROR_STATES[@status]
+      def initialize(data)
+        @sent = data['Sended']
+        @cheque = data['Cheque']
+        @status = data['Status']
+        @error_code = data['ErrCode'] || Status::ERROR_STATES[@status]
       end
 
-      def success?
-        @sent == true && @status == 'Created'
+      def processed?
+        error_code.nil? && @sent == true && @status == 'Created'
+      end
+
+      def processing_error?
+        !error_code.nil?
       end
     end
   end
