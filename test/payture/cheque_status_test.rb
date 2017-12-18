@@ -18,11 +18,12 @@ describe Payture::Cheques::Methods::Status do
       end
 
     assert response.success?
+    assert response.processed?
     refute response.error_code
     assert_equal 1, response.cheques.size
 
     cheque_status = response.cheques.first
-    assert cheque_status.success?
+    assert cheque_status.processed?
     assert cheque_status.sent
     assert_equal 'Created', cheque_status.status
   end

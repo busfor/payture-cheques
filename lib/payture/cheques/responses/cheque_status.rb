@@ -10,7 +10,7 @@ module Payture::Cheques
         @error_code = args["ErrCode"] || Status::ERROR_STATES[@status]
       end
 
-      def success?
+      def processed?
         @sent == true && @status == 'Created'
       end
     end

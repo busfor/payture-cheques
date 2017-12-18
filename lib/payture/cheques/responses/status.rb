@@ -15,7 +15,11 @@ module Payture::Cheques
       end
 
       def success?
-        body['Success'] == true && cheques.all?(&:success?)
+        body['Success'] == true
+      end
+
+      def processed?
+        cheques.all?(&:processed?)
       end
 
       def error_code
