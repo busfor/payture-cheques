@@ -11,10 +11,12 @@ module Payture::Cheques
 
       def params(cheque_id:, inn:, content:, group: nil)
         message = content.delete("Message") || content.delete(:Message)
+        additional_messages = content.delete("AdditionalMessages") || content.delete(:AdditionalMessages)
         params = {
           Key: config.merchant_id,
           Password: config.password,
           Message: message,
+          AdditionalMessages: additional_messages || [],
           Cheque: {
             Id: cheque_id,
             INN: inn,
