@@ -20,6 +20,10 @@ module Payture::Cheques
       def error_code
         body['ErrCode']
       end
+
+      def error_messages
+        body['ErrMessages']
+      end
     end
   end
 end
