@@ -7,6 +7,7 @@ module Payture::Cheques
         'Unauthorized' => 'CANNOT_AUTHORIZE_TERMINAL',
         'NotFound' => 'NOT_FOUND',
         'Timeout' => 'TIMEOUT',
+        'ServiceUnavailable' => 'SERVICE_UNAVAILABLE',
         'Unknown' => 'UNKNOWN',
       }.freeze
 
