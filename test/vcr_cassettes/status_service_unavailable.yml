@@ -1,0 +1,41 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox3.payture.com/apicheque/Status
+    body:
+      encoding: UTF-8
+      string: '{"Key":"MerchantId","Password":"1234","Id":"busfor-123"}'
+    headers:
+      User-Agent:
+      - Faraday v0.13.1
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 05 Dec 2017 13:30:08 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '119'
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJTdWNjZXNzIjp0cnVlLCJFcnJDb2RlIjpudWxsLCJDaGVxdWVzIjpbeyJT
+        ZW5kZWQiOmZhbHNlLCJDaGVxdWUiOm51bGwsIkVyckNvZGUiOm51bGwsIlN0
+        YXR1cyI6IlNlcnZpY2VVbmF2YWlsYWJsZSJ9XX0=
+    http_version:
+  recorded_at: Tue, 05 Dec 2017 13:30:08 GMT
+recorded_with: VCR 2.9.3

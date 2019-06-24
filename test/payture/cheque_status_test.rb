@@ -24,6 +24,19 @@ describe Payture::Cheques::Methods::Status do
     assert_nil response.error_code
   end
 
+  it 'returns processing_error for status ServiceUnavailable' do
+    response =
+      VCR.use_cassette('status_service_unavailable') do
+        @client.status(cheque_id: 'busfor-123')
+      end
+
+    assert response.success?
+    refute response.processed?
+
+    assert response.processing_error?
+    assert_nil response.error_code
+  end
+
   it 'returns success cheques' do
     response =
       VCR.use_cassette('status_success') do
