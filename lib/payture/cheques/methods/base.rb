@@ -30,9 +30,9 @@ module Payture::Cheques
 
       def make_request(url, params)
         conn = Faraday.new do |builder|
-          builder.adapter Faraday.default_adapter
           builder.request :url_encoded
           builder.response(:logger, config.logger) if config.logger
+          builder.adapter Faraday.default_adapter
         end
         conn.post(url) do |req|
           req.headers['Content-Type'] = 'application/json'
